@@ -35,6 +35,22 @@ public class Main {
         
         System.out.println("\nElipse original (verificando que não foi alterada):");
         elipse.exibir();
+        
+        // Demonstrando polimorfismo com a classe Circulo
+        System.out.println("\n=== Demonstração de Polimorfismo com Círculo ===");
+        Figura circulo = new Circulo(50, 50, "Roxo", 75);
+        System.out.println("\nCírculo tratado como Figura:");
+        circulo.exibir();
+        
+        Figura circuloClone = circulo.clonar();
+        System.out.println("\nClone do círculo (antes da alteração):");
+        circuloClone.exibir();
+        
+        circuloClone.setX(60);
+        circuloClone.setCor("Laranja");
+        ((Circulo)circuloClone).setRaio(85);
+        System.out.println("\nClone do círculo (após alteração):");
+        circuloClone.exibir();
     }
     
     static abstract class Figura {
@@ -168,6 +184,35 @@ public class Main {
         
         public void setRaioMenor(int raioMenor) {
             this.raioMenor = raioMenor;
+        }
+    }
+    
+    static class Circulo extends Figura {
+        private int raio;
+        
+        public Circulo(int x, int y, String cor, int raio) {
+            super(x, y, cor);
+            this.raio = raio;
+        }
+        
+        @Override
+        public Figura clonar() {
+            return new Circulo(getX(), getY(), getCor(), raio);
+        }
+        
+        @Override
+        public void exibir() {
+            System.out.println("Tipo: Círculo");
+            super.exibir();
+            System.out.println("Raio: " + raio);
+        }
+        
+        public int getRaio() {
+            return raio;
+        }
+        
+        public void setRaio(int raio) {
+            this.raio = raio;
         }
     }
 }
