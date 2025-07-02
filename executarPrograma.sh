@@ -3,11 +3,20 @@
 echo "===== Menu de Execução de Programas Java ====="
 echo
 
-pastas=($(find . -maxdepth 1 -type d -name "[0-9]*" | sort -n))
+# Encontra todas as pastas que contêm Main.java
+pastas=()
+for dir in */; do
+    if [[ -f "${dir}Main.java" ]]; then
+        pastas+=("${dir%/}")
+    fi
+done
+
+# Ordena as pastas: primeiro as numéricas em ordem crescente, depois as alfabéticas
+IFS=$'\n' pastas=($(printf '%s\n' "${pastas[@]}" | sort -V))
 
 echo "Escolha um programa para executar:"
 for i in "${!pastas[@]}"; do
-    pasta_nome=$(basename "${pastas[$i]}")
+    pasta_nome="${pastas[$i]}"
     echo "[$((i+1))] Programa da pasta $pasta_nome"
 done
 echo "[q] Sair"
@@ -26,7 +35,7 @@ if ! [[ "$escolha" =~ ^[0-9]+$ ]] || [ "$escolha" -lt 1 ] || [ "$escolha" -gt ${
 fi
 
 pasta_selecionada=${pastas[$((escolha-1))]}
-pasta_nome=$(basename "$pasta_selecionada")
+pasta_nome="${pastas[$((escolha-1))]}"
 
 echo
 echo "Executando o programa da pasta $pasta_nome..."
