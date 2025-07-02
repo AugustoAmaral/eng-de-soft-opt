@@ -1,0 +1,16 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "java.format.enabled": true,
+    "java.format.settings.profile": "GoogleStyle",
+    "java.format.comments.enabled": true,
+    "java.saveActions.organizeImports": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": true
+    }
+}
