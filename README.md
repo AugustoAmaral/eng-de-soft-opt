@@ -2,6 +2,14 @@
 
 Este repositório contém exercícios práticos sobre padrões de projeto (Design Patterns) implementados em Java, demonstrando conceitos fundamentais de programação orientada a objetos e arquitetura de software.
 
+## Execução Online (Alternativa)
+
+**Não tem Java instalado?** Você pode copiar o código de qualquer exercício e executá-lo diretamente no navegador usando o OneCompiler:
+
+🔗 **[https://onecompiler.com/java](https://onecompiler.com/java)**
+
+Basta copiar o conteúdo do arquivo `Main.java` de qualquer exercício e colar no editor online. O código funcionará perfeitamente sem necessidade de instalação local do Java.
+
 ## Pré-requisitos
 
 - **Java Development Kit (JDK)** versão 8 ou superior instalado no sistema
